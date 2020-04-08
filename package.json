@@ -1,0 +1,25 @@
+{
+  "name": "evalua-uc-api",
+  "version": "1.0.0",
+  "description": "An open source project to evaluate Catholic University of Chile profesors and courses.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "graphql": "^15.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wayoalamos/evalua-uc-api.git"
+  },
+  "keywords": [],
+  "author": "wayoalamos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wayoalamos/evalua-uc-api/issues"
+  },
+  "homepage": "https://github.com/wayoalamos/evalua-uc-api#readme"
+}
