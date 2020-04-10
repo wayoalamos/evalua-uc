@@ -1,6 +1,6 @@
-const { db } = require("./pgAdaptor");
+const { db } = require('./pgAdaptor');
 
 db.one('select * from users')
-    .then(res => {
+  .then((res) => {
     console.log(res);
-});
+  });
