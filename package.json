@@ -2,16 +2,28 @@
   "name": "evalua-uc-api",
   "version": "1.0.0",
   "description": "An open source project to evaluate Catholic University of Chile profesors and courses.",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
     "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
     "graphql": "^15.0.0",
-    "pg": "^8.0.0"
+    "pg": "^8.0.0",
+    "pg-promise": "^10.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "nodemon": "^2.0.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
