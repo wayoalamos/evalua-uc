@@ -14,8 +14,8 @@ git clone https://github.com/wayoalamos/evalua-uc-api.git
 npm install express
 npm install graphql
 npm install express-graphql
-npm install pg-promise
 apt-get install postgresql
+npm install pg-promise
 
 ### Database
 psql -d postgres -U me
