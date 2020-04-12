@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const expressGraphQl = require('express-graphql');
 const graphql = require('graphql');
@@ -18,7 +20,7 @@ app.use(
   '/',
   expressGraphQl({
     schema,
-    graphiql: true,
+    graphiql: process.env.NODE_ENV === 'development',
   }),
 );
 

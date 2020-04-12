@@ -32,19 +32,6 @@ const RootQuery = new GraphQLObjectType({
         }
       },
     },
-    projects: {
-      type: ProjectType,
-      args: { id: { type: GraphQLID } },
-      async resolve(parentValue, args) {
-        const query = `SELECT * FROM project WHERE creator_id=${args.id}`;
-        try {
-          const res = await db.one(query);
-          return res;
-        } catch (err) {
-          return err;
-        }
-      },
-    },
   },
 });
 
