@@ -1,12 +1,12 @@
 const graphql = require('graphql');
 
-const { GraphQLObjectType, GraphQLString } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql;
 
 const UserType = new GraphQLObjectType({
   name: 'User',
   type: 'Query',
   fields: {
-    id: { type: GraphQLString },
+    id: { type: GraphQLID },
     username: { type: GraphQLString },
     email: { type: GraphQLString },
     joined: { type: GraphQLString },
@@ -18,8 +18,8 @@ const ProjectType = new GraphQLObjectType({
   name: 'Project',
   type: 'Query',
   fields: {
-    id: { type: GraphQLString },
-    creator_id: { type: GraphQLString },
+    id: { type: GraphQLID },
+    creator_id: { type: GraphQLID },
     created: { type: GraphQLString },
     title: { type: GraphQLString },
     description: { type: GraphQLString },

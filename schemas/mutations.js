@@ -27,8 +27,7 @@ const RootMutation = new GraphQLObjectType({
         ];
 
         try {
-          const res = await db
-            .one(query, values);
+          const res = await db.one(query, values);
           return res;
         } catch (err) {
           return err;

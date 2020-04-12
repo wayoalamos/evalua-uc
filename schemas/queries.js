@@ -10,12 +10,9 @@ const RootQuery = new GraphQLObjectType({
       type: ProjectType,
       args: { id: { type: GraphQLID } },
       async resolve(parentValue, args) {
-        const query = 'SELECT * FROM project WHERE id=$1';
-        const values = [args.id];
-
+        const query = `SELECT * FROM project WHERE id=${args.id}`;
         try {
-          const res = await db
-            .one(query, values);
+          const res = await db.one(query);
           return res;
         } catch (err) {
           return err;
@@ -26,12 +23,22 @@ const RootQuery = new GraphQLObjectType({
       type: UserType,
       args: { id: { type: GraphQLID } },
       async resolve(parentValue, args) {
-        const query = 'SELECT * FROM users WHERE id=$1';
-        const values = [args.id];
-
+        const query = `SELECT * FROM users WHERE id=${args.id}`;
         try {
-          const res = await db
-            .one(query, values);
+          const res = await db.one(query);
+          return res;
+        } catch (err) {
+          return err;
+        }
+      },
+    },
+    projects: {
+      type: ProjectType,
+      args: { id: { type: GraphQLID } },
+      async resolve(parentValue, args) {
+        const query = `SELECT * FROM project WHERE creator_id=${args.id}`;
+        try {
+          const res = await db.one(query);
           return res;
         } catch (err) {
           return err;
