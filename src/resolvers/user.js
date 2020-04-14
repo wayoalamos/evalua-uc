@@ -1,16 +1,12 @@
 module.exports = {
   Query: {
     me: (parent, args, { me }) => me,
-    users: (parent, args, { models }) => (
-      Object.values(models.users)
-    ),
-    user: (parent, args, { models }) => (
-      models.users[args.id]
-    ),
+    user: async (parent, args, { models }) => models.User.findByPk(args.id),
+    users: async (parent, args, { models }) => models.User.findAll(),
   },
   User: {
-    projects: (parent, args, { models }) => Object.values(models.projects).filter(
-      (project) => project.creator_id === parent.id,
+    projects: async (parent, args, { models }) => models.Project.findAll(
+      { where: { userId: parent.id } },
     ),
   },
 };

@@ -1,28 +1,22 @@
 module.exports = {
   Query: {
-    project: (parent, args, { models }) => (
-      models.projects[args.id]
-    ),
-    projects: (parent, args, { models }) => (
-      Object.values(models.projects)
-    ),
+    project: async (parent, args, { models }) => models.Project.findByPk(args.id),
+    projects: async (parent, args, { models }) => models.Project.findAll(),
   },
   Project: {
-    creator: (parent, args, { models }) => Object.values(models.users).find(
-      (user) => user.id === parent.creator_id,
-    ),
+    creator: async (parent, args, { models }) => models.User.findByPk(parent.userId),
   },
   Mutation: {
-    createProject: (parent, { title, description }, { me }) => {
-      const project = {
-        id: 3,
-        created: 'now',
+    createProject: async (parent, { title, description }, { me, models }) => models.Project.create(
+      {
         title,
         description,
-        creator_id: me.id,
-      };
-      // models.projects[project.id] = project;
-      return project;
-    },
+        userId: me.id,
+      },
+    ),
   },
 };
+
+// deleteMessage: async (parent, { id }, { models }) => {
+//   return await models.Message.destroy({ where: { id } });
+// },

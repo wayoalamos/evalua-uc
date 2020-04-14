@@ -16,6 +16,7 @@ npm install graphql
 apt-get install postgresql
 npm install pg-promise
 
-### Database
-psql -d postgres -U me
-\c evalua-uc-api
+### terminal commands to remember
+psql -d postgres -U me         # connect to databse
+\dt                            # list all tables
+\c evalua-uc-api                
