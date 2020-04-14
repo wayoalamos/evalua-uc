@@ -10,7 +10,6 @@
     "express": "^4.17.1",
     "graphql": "^15.0.0",
     "pg": "^8.0.2",
-    "pg-promise": "^10.5.0",
     "sequelize": "^5.21.6"
   },
   "devDependencies": {
