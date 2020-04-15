@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
+const jwt = require('jsonwebtoken');
 
 const schema = require('./schema');
 const resolvers = require('./resolvers');
@@ -12,13 +13,29 @@ const port = 3000;
 
 const eraseDatabaseOnSync = true;
 
+const getMe = async (req) => {
+  // console.log('getMe functions runing');
+  const token = req.headers['x-token'];
+  if (token) {
+    try {
+      return await jwt.verify(token, process.env.SECRET);
+    } catch (err) {
+      throw new Error(
+        'Your session expired. Sign in again.',
+      );
+    }
+  }
+  return false;
+};
+
 const server = new ApolloServer({
   typeDefs: schema,
   resolvers,
-  context: {
+  context: async ({ req }) => ({
     models,
-    me: async () => models.User.findByLogin('rwieruch'),
-  },
+    me: await getMe(req),
+    secret: process.env.SECRET,
+  }),
   playground: process.env.NODE_ENV === 'development',
 });
 
@@ -27,7 +44,10 @@ server.applyMiddleware({ app, path: '/' });
 const createUsersWithProjects = async () => {
   await models.User.create(
     {
+      email: 'user2@example.com',
       username: 'wayoalamos',
+      password: '12345678',
+      role: 'ADMIN',
       projects: [
         {
           title: 'project title uno',
@@ -46,6 +66,8 @@ const createUsersWithProjects = async () => {
   await models.User.create(
     {
       username: 'userexample2',
+      email: 'user@example.com',
+      password: '12345678',
       projects: [
         {
           title: 'project title tres',
