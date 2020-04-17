@@ -11,6 +11,7 @@ const user = (sequelize, DataTypes) => {
       },
     },
     email: {
+      // TODO: must be @uc.cl or @puc.cl
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
@@ -29,6 +30,9 @@ const user = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.STRING,
+    },
+    banned: {
+      type: DataTypes.BOOLEAN,
     },
   });
   User.associate = (models) => {

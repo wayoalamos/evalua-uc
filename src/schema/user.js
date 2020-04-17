@@ -27,5 +27,6 @@ module.exports = gql`
         projects: [Project!]!
         email: String!
         role: String
+        banned: Boolean
     }
 `;
