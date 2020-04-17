@@ -1,3 +1,6 @@
+const { combineResolvers } = require('graphql-resolvers');
+const { isAuthenticated } = require('./authorization');
+
 module.exports = {
   Query: {
     project: async (parent, args, { models }) => models.Project.findByPk(args.id),
@@ -7,12 +10,13 @@ module.exports = {
     creator: async (parent, args, { models }) => models.User.findByPk(parent.userId),
   },
   Mutation: {
-    createProject: async (parent, { title, description }, { me, models }) => models.Project.create(
-      {
+    createProject: combineResolvers(
+      isAuthenticated,
+      async (parent, { title, description }, { me, models }) => models.Project.create({
         title,
         description,
         userId: me.id,
-      },
+      }),
     ),
   },
 };
