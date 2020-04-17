@@ -12,11 +12,10 @@ module.exports = {
   Mutation: {
     createFeedback: combineResolvers(
       isAuthenticated,
-      async (parent, { title, description, status = 'sent' }, { me, models }) => models.Feedback.create({
+      async (parent, { title, description }, { me, models }) => models.Feedback.create({
         title,
         description,
         userId: me.id,
-        status,
       }),
     ),
   },

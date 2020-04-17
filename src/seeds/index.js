@@ -8,6 +8,16 @@ const createUsersWithProjects = async () => {
       username: 'wayoalamos',
       password: '12345678',
       role: roles.ADMIN,
+      feedbacks: [
+        {
+          title: 'feedback title uno',
+          description: 'feeedvacj desctiption uno',
+        },
+        {
+          title: 'project title uno',
+          description: 'desctiption uno',
+        },
+      ],
       projects: [
         {
           title: 'project title uno',
@@ -20,7 +30,7 @@ const createUsersWithProjects = async () => {
       ],
     },
     {
-      include: [models.Project],
+      include: [models.Project, models.Feedback],
     },
   );
   await models.User.create(

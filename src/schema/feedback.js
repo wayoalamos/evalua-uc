@@ -10,10 +10,10 @@ module.exports = gql`
         deleteFeedback(id: Int!): Boolean!
     }
     type Feedback {
-        id: ID
-        creator: User
-        title: String
-        description: String
-        status: String
+        id: ID!
+        creator: User!
+        title: String!
+        description: String!
+        status: String!
     }
 `;

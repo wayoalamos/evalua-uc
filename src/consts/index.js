@@ -2,4 +2,8 @@ const roles = {
   ADMIN: 'ADMIN',
 };
 
-module.exports = { roles };
+const status = {
+  SENT: 'SENT',
+};
+
+module.exports = { roles, status };
