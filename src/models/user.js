@@ -38,6 +38,9 @@ const user = (sequelize, DataTypes) => {
     // eslint-disable-next-line no-param-reassign
     newUser.password = await newUser.generatePasswordHash();
   });
+  User.findByLogin = async function findByLogin(login) {
+    return User.findOne({ where: { username: login } });
+  };
   User.prototype.generatePasswordHash = async function bcryptPassword() {
     const saltRounds = 10;
     return bcrypt.hash(this.password, saltRounds);

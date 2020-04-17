@@ -6,10 +6,11 @@ const jwt = require('jsonwebtoken');
 
 const schema = require('./schema');
 const resolvers = require('./resolvers');
+const { createUsersWithProjects } = require('./seeds');
 const { models, sequelize } = require('./models');
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 const eraseDatabaseOnSync = true;
 
@@ -40,50 +41,6 @@ const server = new ApolloServer({
 });
 
 server.applyMiddleware({ app, path: '/' });
-
-const createUsersWithProjects = async () => {
-  await models.User.create(
-    {
-      email: 'user2@example.com',
-      username: 'wayoalamos',
-      password: '12345678',
-      role: 'ADMIN',
-      projects: [
-        {
-          title: 'project title uno',
-          description: 'desctiption uno',
-        },
-        {
-          title: 'project title dos',
-          description: 'desctiption dos',
-        },
-      ],
-    },
-    {
-      include: [models.Project],
-    },
-  );
-  await models.User.create(
-    {
-      username: 'userexample2',
-      email: 'user@example.com',
-      password: '12345678',
-      projects: [
-        {
-          title: 'project title tres',
-          description: 'desctiption tres',
-        },
-        {
-          title: 'project title cc',
-          description: 'desctiption cc',
-        },
-      ],
-    },
-    {
-      include: [models.Project],
-    },
-  );
-};
 
 sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
   if (eraseDatabaseOnSync) {
