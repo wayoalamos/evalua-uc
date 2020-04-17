@@ -5,7 +5,7 @@ const feedback = (sequelize, DataTypes) => {
       validate: { notEmpty: true },
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       validate: { notEmpty: true },
     },
     status: {
