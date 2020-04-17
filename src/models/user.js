@@ -6,18 +6,15 @@ const user = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
     },
     email: {
-      // TODO: must be @uc.cl or @puc.cl
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
       validate: {
         notEmpty: true,
         isEmail: true,
+        // TODO: must be @uc.cl or @puc.cl
       },
     },
     password: {
