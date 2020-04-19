@@ -19,5 +19,6 @@ module.exports = {
         userId: me.id,
       }),
     ),
+  // TODO: deleteFeedback mutation
   },
 };

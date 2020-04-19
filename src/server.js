@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const schema = require('./schema');
 const resolvers = require('./resolvers');
-const { createUsersWithProjects } = require('./seeds');
+const { createSeeds } = require('./seeds');
 const { models, sequelize } = require('./models');
 
 const app = express();
@@ -44,7 +44,7 @@ server.applyMiddleware({ app, path: '/' });
 
 sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
   if (eraseDatabaseOnSync) {
-    createUsersWithProjects();
+    createSeeds();
   }
   app.listen(
     port,
