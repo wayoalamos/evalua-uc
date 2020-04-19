@@ -1,7 +1,7 @@
 const { models } = require('../models');
 const { roles } = require('../consts');
 
-const createUsersWithProjects = async () => {
+const createSeeds = async () => {
   await models.User.create(
     {
       email: 'user1@example.com',
@@ -54,6 +54,21 @@ const createUsersWithProjects = async () => {
       include: [models.Project],
     },
   );
+  await models.Campus.create(
+    {
+      name: 'San Joaquin',
+    },
+  );
+  await models.Campus.create(
+    {
+      name: 'Lo Contador',
+    },
+  );
+  await models.Campus.create(
+    {
+      name: 'Casa Central',
+    },
+  );
 };
 
-module.exports = { createUsersWithProjects };
+module.exports = { createSeeds };
