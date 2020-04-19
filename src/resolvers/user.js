@@ -5,10 +5,10 @@ const { isAdmin } = require('./authorization');
 
 const createToken = async (user, secret, expiresIn) => {
   const {
-    id, email, username, role,
+    id, email, username, role, banned,
   } = user;
   return jwt.sign({
-    id, email, username, role,
+    id, email, username, role, banned,
   }, secret, { expiresIn });
 };
 
@@ -55,6 +55,9 @@ module.exports = {
   },
   User: {
     projects: async (parent, args, { models }) => models.Project.findAll(
+      { where: { userId: parent.id } },
+    ),
+    feedbacks: async (parent, args, { models }) => models.Feedback.findAll(
       { where: { userId: parent.id } },
     ),
   },

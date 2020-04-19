@@ -4,10 +4,20 @@ const { roles } = require('../consts');
 const createUsersWithProjects = async () => {
   await models.User.create(
     {
-      email: 'user2@example.com',
-      username: 'wayoalamos',
+      email: 'user1@example.com',
+      username: 'a',
       password: '12345678',
       role: roles.ADMIN,
+      feedbacks: [
+        {
+          title: 'feedback title uno',
+          description: 'feeedvacj desctiption uno',
+        },
+        {
+          title: 'project title uno',
+          description: 'desctiption uno',
+        },
+      ],
       projects: [
         {
           title: 'project title uno',
@@ -20,14 +30,15 @@ const createUsersWithProjects = async () => {
       ],
     },
     {
-      include: [models.Project],
+      include: [models.Project, models.Feedback],
     },
   );
   await models.User.create(
     {
-      username: 'userexample2',
-      email: 'user@example.com',
+      username: 'b',
+      email: 'user2@example.com',
       password: '12345678',
+      banned: true,
       projects: [
         {
           title: 'project title tres',
