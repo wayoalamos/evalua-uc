@@ -10,7 +10,6 @@ const feedback = (sequelize, DataTypes) => {
     },
     status: {
       type: DataTypes.STRING,
-      validate: { notEmpty: true },
     },
   });
   Feedback.associate = (models) => {

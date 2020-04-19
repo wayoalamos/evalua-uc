@@ -1,5 +1,5 @@
 const { combineResolvers } = require('graphql-resolvers');
-const { isAuthenticated } = require('./authorization');
+const { isAuthenticated, isBanned } = require('./authorization');
 
 module.exports = {
   Query: {
@@ -12,6 +12,7 @@ module.exports = {
   Mutation: {
     createFeedback: combineResolvers(
       isAuthenticated,
+      isBanned,
       async (parent, { title, description }, { me, models }) => models.Feedback.create({
         title,
         description,

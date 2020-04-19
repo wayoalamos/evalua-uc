@@ -14,6 +14,6 @@ module.exports = gql`
         creator: User!
         title: String!
         description: String!
-        status: String!
+        status: String
     }
 `;

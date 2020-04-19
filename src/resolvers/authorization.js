@@ -12,5 +12,6 @@ const isAdmin = combineResolvers(
     : new Error('Not authorized as admin.')),
 );
 
+const isBanned = (parent, args, { me }) => (me.banned ? new Error('User is banned') : skip);
 
-module.exports = { isAuthenticated, isAdmin };
+module.exports = { isAuthenticated, isAdmin, isBanned };

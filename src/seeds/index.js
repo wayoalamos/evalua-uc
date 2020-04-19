@@ -5,7 +5,7 @@ const createUsersWithProjects = async () => {
   await models.User.create(
     {
       email: 'user1@example.com',
-      username: 'wayoalamos',
+      username: 'a',
       password: '12345678',
       role: roles.ADMIN,
       feedbacks: [
@@ -35,7 +35,7 @@ const createUsersWithProjects = async () => {
   );
   await models.User.create(
     {
-      username: 'userexample2',
+      username: 'b',
       email: 'user2@example.com',
       password: '12345678',
       banned: true,
