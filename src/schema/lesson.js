@@ -13,7 +13,6 @@ module.exports = gql`
         id: ID!
         semesters: [Int!]!
         campus: Campus!
+        course: Course!
     }
 `;
-
-// TODO: Add lessons to schema

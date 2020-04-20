@@ -8,6 +8,7 @@ module.exports = {
   },
   Lesson: {
     campus: async (parent, args, { models }) => models.Campus.findByPk(parent.campusId),
+    course: async (parent, args, { models }) => models.Course.findByPk(parent.courseId),
   },
   Mutation: {
     createLesson: combineResolvers(

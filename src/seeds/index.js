@@ -100,6 +100,7 @@ const createSeeds = async () => {
     {
       semesters: [0, 1, 2, 3, 4, 5],
       campusId: 1,
+      courseId: 1,
     },
   );
 };

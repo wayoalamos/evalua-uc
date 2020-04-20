@@ -10,6 +10,11 @@ const lesson = (sequelize, DataTypes) => {
         allowNull: false,
       },
     });
+    Lesson.belongsTo(models.Course, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
   };
   return Lesson;
 };
