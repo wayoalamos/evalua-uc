@@ -80,6 +80,22 @@ const createSeeds = async () => {
       photo: 'www.estoesellindeunafoto.cl',
     },
   );
+  await models.Course.create(
+    {
+      name: 'Matematicas Discretas',
+      code: 'IIC1231',
+    },
+  );
+  await models.Course.create(
+    {
+      name: 'Sistemas Operativos',
+      code: 'IIAAAA',
+      description: 'curso de sistemas y de redes',
+      category: 'No me acuerdo que mierda va aca',
+      credits: 20,
+      school: 'Ingenieria',
+    },
+  );
 };
 
 module.exports = { createSeeds };

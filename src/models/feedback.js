@@ -3,10 +3,12 @@ const feedback = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING,
       validate: { notEmpty: true },
+      allowNull: false,
     },
     description: {
       type: DataTypes.TEXT,
       validate: { notEmpty: true },
+      allowNull: false,
     },
     status: {
       type: DataTypes.STRING,
