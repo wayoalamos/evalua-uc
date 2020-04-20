@@ -10,7 +10,7 @@ const { createSeeds } = require('./seeds');
 const { models, sequelize } = require('./models');
 
 const app = express();
-const port = 8080;
+const port = 3000;
 
 const eraseDatabaseOnSync = true;
 

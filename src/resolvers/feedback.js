@@ -1,5 +1,5 @@
 const { combineResolvers } = require('graphql-resolvers');
-const { isAuthenticated, isBanned } = require('./authorization');
+const { isAuthenticated, isBanned, isAdmin } = require('./authorization');
 
 module.exports = {
   Query: {
@@ -19,6 +19,9 @@ module.exports = {
         userId: me.id,
       }),
     ),
-  // TODO: deleteFeedback mutation
+    deleteFeedback: combineResolvers(
+      isAdmin,
+      async (parent, { id }, { models }) => models.Feedback.destroy({ where: { id } }),
+    ),
   },
 };
