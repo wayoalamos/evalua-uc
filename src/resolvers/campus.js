@@ -20,5 +20,9 @@ module.exports = {
         name,
       }),
     ),
+    deleteCampus: combineResolvers(
+      isAdmin,
+      async (parent, { id }, { models }) => models.Campus.destroy({ where: { id } }),
+    ),
   },
 };
