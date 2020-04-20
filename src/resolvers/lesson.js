@@ -6,11 +6,15 @@ module.exports = {
     lesson: async (parent, args, { models }) => models.Lesson.findByPk(args.id),
     lessons: async (parent, args, { models }) => models.Lesson.findAll(),
   },
+  Lesson: {
+    campus: async (parent, args, { models }) => models.Campus.findByPk(parent.campusId),
+  },
   Mutation: {
     createLesson: combineResolvers(
       isAdmin,
-      async (parent, { semesters }, { models }) => models.Lesson.create({
+      async (parent, { semesters, campusId }, { models }) => models.Lesson.create({
         semesters,
+        campusId,
       }),
     ),
     deleteLesson: combineResolvers(

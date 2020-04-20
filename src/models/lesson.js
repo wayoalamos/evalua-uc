@@ -4,6 +4,13 @@ const lesson = (sequelize, DataTypes) => {
       type: DataTypes.ARRAY(DataTypes.INTEGER),
     },
   });
+  Lesson.associate = (models) => {
+    Lesson.belongsTo(models.Campus, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+  };
   return Lesson;
 };
 

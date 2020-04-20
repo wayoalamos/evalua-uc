@@ -12,6 +12,7 @@ module.exports = gql`
     type Campus {
         id: ID!
         name: String!
+        lessons: [Lesson!]!
     }
 `;
 

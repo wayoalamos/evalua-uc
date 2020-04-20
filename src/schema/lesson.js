@@ -6,12 +6,13 @@ module.exports = gql`
         lessons: [Lesson!]!
     }
     extend type Mutation {
-        createLesson(semesters: [Int!]!): Lesson
+        createLesson(semesters: [Int!]!, campusId: Int!): Lesson
         deleteLesson(id: Int!): Boolean!
     }
     type Lesson {
         id: ID!
         semesters: [Int!]!
+        campus: Campus!
     }
 `;
 

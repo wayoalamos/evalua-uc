@@ -99,6 +99,7 @@ const createSeeds = async () => {
   await models.Lesson.create(
     {
       semesters: [0, 1, 2, 3, 4, 5],
+      campusId: 1,
     },
   );
 };
