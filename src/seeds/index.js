@@ -69,6 +69,17 @@ const createSeeds = async () => {
       name: 'Casa Central',
     },
   );
+  await models.Profesor.create(
+    {
+      name: 'Marcelo Cornejo',
+    },
+  );
+  await models.Profesor.create(
+    {
+      name: 'Raimundo Soto',
+      photo: 'www.estoesellindeunafoto.cl',
+    },
+  );
 };
 
 module.exports = { createSeeds };

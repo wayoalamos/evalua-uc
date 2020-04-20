@@ -14,6 +14,7 @@ const models = {
   Project: sequelize.import('./project'),
   Feedback: sequelize.import('./feedback'),
   Campus: sequelize.import('./campus'),
+  Profesor: sequelize.import('./profesor'),
 };
 
 Object.keys(models).forEach((key) => {
