@@ -96,6 +96,11 @@ const createSeeds = async () => {
       school: 'Ingenieria',
     },
   );
+  await models.Lesson.create(
+    {
+      semesters: [0, 1, 2, 3, 4, 5],
+    },
+  );
 };
 
 module.exports = { createSeeds };

@@ -6,7 +6,6 @@ const user = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
-      unique: true,
     },
     email: {
       type: DataTypes.STRING,
