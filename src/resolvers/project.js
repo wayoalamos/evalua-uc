@@ -8,6 +8,7 @@ module.exports = {
   },
   Project: {
     creator: async (parent, args, { models }) => models.User.findByPk(parent.userId),
+    // other possibility is to use parent.getUser()
   },
   Mutation: {
     createProject: combineResolvers(

@@ -7,7 +7,7 @@ module.exports = {
     feedbacks: async (parent, args, { models }) => models.Feedback.findAll(),
   },
   Feedback: {
-    creator: async (parent, args, { models }) => models.User.findByPk(parent.userId),
+    creator: async (parent) => parent.getUser(),
   },
   Mutation: {
     createFeedback: combineResolvers(
