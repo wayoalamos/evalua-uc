@@ -13,6 +13,6 @@ module.exports = gql`
         created: String!
         title: String!
         description: String
-        creator: User!
+        creator: User
     }
 `;

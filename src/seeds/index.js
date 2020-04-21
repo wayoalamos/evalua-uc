@@ -111,6 +111,21 @@ const createSeeds = async () => {
       courseId: 2,
     },
   );
+  await models.Comment.create({
+    content: 'esto es el primer comentario',
+    lessonId: 1,
+    userId: 1,
+  });
+  await models.Comment.create({
+    content: 'esto es el segundo s',
+    lessonId: 1,
+    userId: 2,
+  });
+  await models.Comment.create({
+    content: 'esto es el tercer s',
+    lessonId: 2,
+    userId: 2,
+  });
 };
 
 module.exports = { createSeeds };

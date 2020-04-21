@@ -10,14 +10,22 @@ module.exports = {
     campus: async (parent) => parent.getCampus(),
     course: async (parent) => parent.getCourse(),
     profesors: async (parent) => parent.getProfesors(),
+    comments: async (parent) => parent.getComments(),
   },
   Mutation: {
     createLesson: combineResolvers(
       isAdmin,
-      async (parent, { semesters, campusId }, { models }) => models.Lesson.create({
-        semesters,
-        campusId,
-      }),
+      async (parent, {
+        semesters, campusId, courseId, profesorsId,
+      }, { models }) => {
+        const newLesson = models.Lesson.create({
+          semesters,
+          campusId,
+          courseId,
+        });
+        newLesson.addProfesors(models.Profesor.findAll({ where: { id: 1 } }));
+        return newLesson;
+      },
     ),
     deleteLesson: combineResolvers(
       isAdmin,

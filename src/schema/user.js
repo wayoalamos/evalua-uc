@@ -29,5 +29,6 @@ module.exports = gql`
         email: String!
         role: String
         banned: Boolean
+        comments: [Comment!]!
     }
 `;

@@ -6,12 +6,12 @@ module.exports = gql`
         feedbacks: [Feedback!]!
     }
     extend type Mutation {
-        createFeedback(title: String!, description: String!): Feedback
-        deleteFeedback(id: Int!): Boolean!
+        createFeedback(title: String!, description: String!): Feedback!
+        deleteFeedback(id: ID!): Boolean!
     }
     type Feedback {
         id: ID!
-        creator: User!
+        creator: User
         title: String!
         description: String!
         status: String

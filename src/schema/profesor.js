@@ -7,7 +7,7 @@ module.exports = gql`
     }
     extend type Mutation {
         createProfesor(name: String!, photo: String): Profesor
-        deleteProfesor(id: Int!): Boolean!
+        deleteProfesor(id: ID!): Boolean!
     }
     type Profesor {
         id: ID!
