@@ -54,11 +54,7 @@ module.exports = {
     ),
   },
   User: {
-    projects: async (parent, args, { models }) => models.Project.findAll(
-      { where: { userId: parent.id } },
-    ),
-    feedbacks: async (parent, args, { models }) => models.Feedback.findAll(
-      { where: { userId: parent.id } },
-    ),
+    projects: async (parent) => parent.getProjects(),
+    feedbacks: async (parent) => parent.getFeedbacks(),
   },
 };

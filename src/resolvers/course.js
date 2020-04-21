@@ -7,9 +7,7 @@ module.exports = {
     courses: async (parent, args, { models }) => models.Course.findAll(),
   },
   Course: {
-    lessons: async (parent, args, { models }) => models.Lesson.findAll(
-      { where: { courseId: parent.id } },
-    ),
+    lessons: async (parent) => parent.getLessons(),
   },
   Mutation: {
     createCourse: combineResolvers(

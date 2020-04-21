@@ -7,11 +7,7 @@ module.exports = {
     campuses: async (parent, args, { models }) => models.Campus.findAll(),
   },
   Campus: {
-    lessons: async (parent, args, { models }) => models.Lesson.findAll(
-      {
-        where: { campusId: parent.id },
-      },
-    ),
+    lessons: async (parent) => parent.getLessons(),
   },
   Mutation: {
     createCampus: combineResolvers(

@@ -104,7 +104,7 @@ const createSeeds = async () => {
     },
   );
   await l1.addProfesors([p1, p2]);
-  const l2 = await models.Lesson.create(
+  await models.Lesson.create(
     {
       semesters: [0, 4, 5],
       campusId: 2,

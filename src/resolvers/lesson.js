@@ -7,8 +7,8 @@ module.exports = {
     lessons: async (parent, args, { models }) => models.Lesson.findAll(),
   },
   Lesson: {
-    campus: async (parent, args, { models }) => models.Campus.findByPk(parent.campusId),
-    course: async (parent, args, { models }) => models.Course.findByPk(parent.courseId),
+    campus: async (parent) => parent.getCampus(),
+    course: async (parent) => parent.getCourse(),
     profesors: async (parent) => parent.getProfesors(),
   },
   Mutation: {
