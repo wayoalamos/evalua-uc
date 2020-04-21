@@ -6,6 +6,11 @@ module.exports = {
     course: async (parent, args, { models }) => models.Course.findByPk(args.id),
     courses: async (parent, args, { models }) => models.Course.findAll(),
   },
+  Course: {
+    lessons: async (parent, args, { models }) => models.Lesson.findAll(
+      { where: { courseId: parent.id } },
+    ),
+  },
   Mutation: {
     createCourse: combineResolvers(
       isAdmin,

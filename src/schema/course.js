@@ -17,5 +17,6 @@ module.exports = gql`
         category: String
         credits: Int
         school: String
+        lessons: [Lesson!]!
     }
 `;

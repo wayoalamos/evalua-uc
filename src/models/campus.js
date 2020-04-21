@@ -7,6 +7,9 @@ const campus = (sequelize, DataTypes) => {
       validate: { notEmpty: true },
     },
   });
+  Campus.associate = (models) => {
+    Campus.hasMany(models.Lesson);
+  };
   return Campus;
 };
 

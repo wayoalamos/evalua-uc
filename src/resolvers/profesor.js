@@ -6,7 +6,9 @@ module.exports = {
     profesor: async (parent, args, { models }) => models.Profesor.findByPk(args.id),
     profesors: async (parent, args, { models }) => models.Profesor.findAll(),
   },
-  // TODO: Profesor-lessons
+  Profesor: {
+    lessons: async (parent) => parent.getLessons(),
+  },
   Mutation: {
     createProfesor: combineResolvers(
       isAdmin,

@@ -69,12 +69,12 @@ const createSeeds = async () => {
       name: 'Casa Central',
     },
   );
-  await models.Profesor.create(
+  const p1 = await models.Profesor.create(
     {
       name: 'Marcelo Cornejo',
     },
   );
-  await models.Profesor.create(
+  const p2 = await models.Profesor.create(
     {
       name: 'Raimundo Soto',
       photo: 'www.estoesellindeunafoto.cl',
@@ -94,6 +94,21 @@ const createSeeds = async () => {
       category: 'No me acuerdo que mierda va aca',
       credits: 20,
       school: 'Ingenieria',
+    },
+  );
+  const l1 = await models.Lesson.create(
+    {
+      semesters: [0, 1, 2, 3, 4, 5],
+      campusId: 1,
+      courseId: 1,
+    },
+  );
+  await l1.addProfesors([p1, p2]);
+  const l2 = await models.Lesson.create(
+    {
+      semesters: [0, 4, 5],
+      campusId: 2,
+      courseId: 2,
     },
   );
 };

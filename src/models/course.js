@@ -25,6 +25,9 @@ const course = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   });
+  Course.associate = (models) => {
+    Course.hasMany(models.Lesson);
+  };
   return Course;
 };
 

@@ -6,7 +6,6 @@ const user = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
-      unique: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -35,7 +34,7 @@ const user = (sequelize, DataTypes) => {
   });
   User.associate = (models) => {
     User.hasMany(models.Project, { onDelete: 'CASCADE' });
-    User.hasMany(models.Feedback, { onDelete: 'CASCADE' });
+    User.hasMany(models.Feedback);
   };
   User.beforeCreate(async (newUser) => {
     // eslint-disable-next-line no-param-reassign

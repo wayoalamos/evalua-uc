@@ -13,5 +13,6 @@ module.exports = gql`
         id: ID!
         name: String!
         photo: String
+        lessons: [Lesson!]
     }
 `;
