@@ -14,5 +14,6 @@ module.exports = gql`
         semesters: [Int!]!
         campus: Campus!
         course: Course!
+        profesors: [Profesor!]
     }
 `;

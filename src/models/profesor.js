@@ -10,6 +10,9 @@ const profesor = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   });
+  Profesor.associate = (models) => {
+    Profesor.belongsToMany(models.Lesson, { through: 'lessonProfesors' });
+  };
   return Profesor;
 };
 
