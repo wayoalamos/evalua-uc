@@ -9,6 +9,7 @@ module.exports = {
   Comment: {
     lesson: async (parent) => parent.getLesson(),
     creator: async (parent) => parent.getUser(),
+    likes: async (parent) => parent.getLikes(),
   },
   Mutation: {
     createComment: combineResolvers(

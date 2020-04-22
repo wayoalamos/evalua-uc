@@ -7,6 +7,8 @@ const profesorSchema = require('./profesor');
 const courseSchema = require('./course');
 const lessonSchema = require('./lesson');
 const commentSchema = require('./comment');
+const likeSchema = require('./like');
+
 
 const linkSchema = gql`
   type Query {
@@ -30,4 +32,5 @@ module.exports = [
   courseSchema,
   lessonSchema,
   commentSchema,
+  likeSchema,
 ];

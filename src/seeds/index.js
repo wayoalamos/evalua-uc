@@ -54,6 +54,13 @@ const createSeeds = async () => {
       include: [models.Project],
     },
   );
+  await models.User.create(
+    {
+      email: 'user3@example.com',
+      username: 'c',
+      password: '12345678',
+    },
+  );
   await models.Campus.create(
     {
       name: 'San Joaquin',

@@ -36,6 +36,7 @@ const user = (sequelize, DataTypes) => {
     User.hasMany(models.Project, { onDelete: 'CASCADE' });
     User.hasMany(models.Feedback);
     User.hasMany(models.Comment);
+    User.hasMany(models.Like, { onDelete: 'CASCADE' });
   };
   User.beforeCreate(async (newUser) => {
     // eslint-disable-next-line no-param-reassign
