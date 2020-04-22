@@ -14,5 +14,6 @@ module.exports = gql`
         content: String!
         lesson: Lesson
         creator: User
+        likes: [Like!]!
     }
 `;

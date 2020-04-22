@@ -18,6 +18,7 @@ const models = {
   Course: sequelize.import('./course'),
   Lesson: sequelize.import('./lesson'),
   Comment: sequelize.import('./comment'),
+  Like: sequelize.import('./like'),
 };
 
 Object.keys(models).forEach((key) => {
