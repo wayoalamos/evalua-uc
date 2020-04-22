@@ -5,6 +5,7 @@ const campusResolvers = require('./campus');
 const profesorResolvers = require('./profesor');
 const courseResolvers = require('./course');
 const lessonResolvers = require('./lesson');
+const commentResolvers = require('./comment');
 
 module.exports = [
   userResolvers,
@@ -14,4 +15,5 @@ module.exports = [
   profesorResolvers,
   courseResolvers,
   lessonResolvers,
+  commentResolvers,
 ];

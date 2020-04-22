@@ -16,6 +16,7 @@ const lesson = (sequelize, DataTypes) => {
       },
     });
     Lesson.belongsToMany(models.Profesor, { through: 'lessonProfesors' });
+    Lesson.hasMany(models.Comment);
   };
   return Lesson;
 };
