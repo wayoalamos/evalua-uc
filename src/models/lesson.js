@@ -17,6 +17,7 @@ const lesson = (sequelize, DataTypes) => {
     });
     Lesson.belongsToMany(models.Profesor, { through: 'lessonProfesors' });
     Lesson.hasMany(models.Comment);
+    Lesson.hasMany(models.Evaluation, { onDelete: 'CASCADE' });
   };
   return Lesson;
 };

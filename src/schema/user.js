@@ -30,5 +30,6 @@ module.exports = gql`
         role: String
         banned: Boolean
         comments: [Comment!]!
+        evaluations: [Evaluation!]!
     }
 `;

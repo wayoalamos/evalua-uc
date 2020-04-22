@@ -57,5 +57,6 @@ module.exports = {
     projects: async (parent) => parent.getProjects(),
     feedbacks: async (parent) => parent.getFeedbacks(),
     comments: async (parent) => parent.getComments(),
+    evaluations: async (parent) => parent.getEvaluations(),
   },
 };

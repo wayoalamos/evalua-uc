@@ -16,5 +16,6 @@ module.exports = gql`
         course: Course
         profesors: [Profesor!]
         comments: [Comment!]!
+        evaluations: [Evaluation!]!
     }
 `;

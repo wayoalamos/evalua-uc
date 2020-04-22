@@ -11,6 +11,7 @@ module.exports = {
     course: async (parent) => parent.getCourse(),
     profesors: async (parent) => parent.getProfesors(),
     comments: async (parent) => parent.getComments(),
+    evaluations: async (parent) => parent.getEvaluations(),
   },
   Mutation: {
     createLesson: combineResolvers(
