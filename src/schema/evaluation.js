@@ -6,7 +6,7 @@ module.exports = gql`
         evaluations: [Evaluation!]!
     }
     extend type Mutation {
-        createEvaluation(lessonId: ID!, stars: Int!): Evaluation
+        createEvaluation(lessonId: ID!, stars: Int!, charasteristicId: ID!): Evaluation
         deleteEvaluation(id: ID!): Boolean!
     }
     type Evaluation {
@@ -14,5 +14,6 @@ module.exports = gql`
         stars: Int
         creator: User!
         lesson: Lesson!
+        charasteristic: Charasteristic!
     }
 `;

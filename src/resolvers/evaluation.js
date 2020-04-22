@@ -9,12 +9,17 @@ module.exports = {
   Evaluation: {
     lesson: async (parent) => parent.getLesson(),
     creator: async (parent) => parent.getUser(),
+    charasteristic: async (parent) => parent.getCharasteristic(),
   },
   Mutation: {
     createEvaluation: combineResolvers(
       isAuthenticated,
-      async (parent, { stars, lessonId }, { models, me }) => models.Evaluation.create(
-        { stars, lessonId, userId: me.id },
+      async (
+        parent, { stars, lessonId, charasteristicId }, { models, me },
+      ) => models.Evaluation.create(
+        {
+          stars, lessonId, charasteristicId, userId: me.id,
+        },
       ),
     ),
     deleteEvaluation: combineResolvers(
