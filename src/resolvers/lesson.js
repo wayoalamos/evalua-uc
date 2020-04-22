@@ -16,14 +16,15 @@ module.exports = {
     createLesson: combineResolvers(
       isAdmin,
       async (parent, {
-        semesters, campusId, courseId, profesorsId,
+        semesters, campusId, courseId, profesorsIds,
       }, { models }) => {
-        const newLesson = models.Lesson.create({
+        const newLesson = await models.Lesson.create({
           semesters,
           campusId,
           courseId,
         });
-        newLesson.addProfesors(models.Profesor.findAll({ where: { id: 1 } }));
+        const profesors = await Promise.all(profesorsIds.map((id) => models.Profesor.findByPk(id)));
+        await newLesson.addProfesors(profesors);
         return newLesson;
       },
     ),
