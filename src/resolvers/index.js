@@ -8,6 +8,7 @@ const lessonResolvers = require('./lesson');
 const commentResolvers = require('./comment');
 const likeResolvers = require('./like');
 const evaluationResolvers = require('./evaluation');
+const charasteristicResolvers = require('./charasteristic');
 
 module.exports = [
   userResolvers,
@@ -20,4 +21,5 @@ module.exports = [
   commentResolvers,
   likeResolvers,
   evaluationResolvers,
+  charasteristicResolvers,
 ];

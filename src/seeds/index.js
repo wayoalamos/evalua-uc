@@ -133,15 +133,23 @@ const createSeeds = async () => {
     lessonId: 2,
     userId: 2,
   });
+  await models.Charasteristic.create({
+    name: 'General',
+  });
+  await models.Charasteristic.create({
+    name: 'Exigencia',
+  });
   await models.Evaluation.create({
     stars: 2,
     lessonId: 2,
     userId: 1,
+    charasteristicId: 1,
   });
   await models.Evaluation.create({
     stars: 3,
     lessonId: 2,
     userId: 2,
+    charasteristicId: 1,
   });
 };
 

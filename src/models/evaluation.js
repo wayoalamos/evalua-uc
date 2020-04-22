@@ -19,6 +19,11 @@ const evaluation = (sequelize, DataTypes) => {
         allowNull: false,
       },
     });
+    Evaluation.belongsTo(models.Charasteristic, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
   };
   return Evaluation;
 };

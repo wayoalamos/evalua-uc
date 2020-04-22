@@ -9,6 +9,7 @@ const lessonSchema = require('./lesson');
 const commentSchema = require('./comment');
 const likeSchema = require('./like');
 const evaluationSchema = require('./evaluation');
+const charasteristicSchema = require('./charasteristic');
 
 
 const linkSchema = gql`
@@ -35,4 +36,5 @@ module.exports = [
   commentSchema,
   likeSchema,
   evaluationSchema,
+  charasteristicSchema,
 ];

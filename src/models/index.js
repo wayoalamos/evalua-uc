@@ -19,6 +19,7 @@ const models = {
   Lesson: sequelize.import('./lesson'),
   Comment: sequelize.import('./comment'),
   Like: sequelize.import('./like'),
+  Charasteristic: sequelize.import('./charasteristic'),
   Evaluation: sequelize.import('./evaluation'),
 };
 
