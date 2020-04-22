@@ -21,7 +21,7 @@ const isOwner = async (model, me, id) => {
   if (entity === null) {
     throw new Error(`Entity not found with id ${id}`);
   }
-  if (entity.userId !== me.id) {
+  if (entity.userId !== me.id && me.role !== roles.ADMIN) {
     throw new Error('Not authenitcated as owner');
   }
   return skip;

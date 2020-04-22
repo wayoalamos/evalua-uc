@@ -133,6 +133,16 @@ const createSeeds = async () => {
     lessonId: 2,
     userId: 2,
   });
+  await models.Evaluation.create({
+    stars: 2,
+    lessonId: 2,
+    userId: 1,
+  });
+  await models.Evaluation.create({
+    stars: 3,
+    lessonId: 2,
+    userId: 2,
+  });
 };
 
 module.exports = { createSeeds };
