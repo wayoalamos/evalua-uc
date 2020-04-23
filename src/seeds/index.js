@@ -7,6 +7,7 @@ const createSeeds = async () => {
       email: 'user1@example.com',
       username: 'a',
       password: '12345678',
+      phone: '123456789',
       role: roles.ADMIN,
       feedbacks: [
         {

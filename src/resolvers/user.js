@@ -5,10 +5,10 @@ const { isAdmin } = require('./authorization');
 
 const createToken = async (user, secret, expiresIn) => {
   const {
-    id, email, username, role, banned,
+    id, email, username, role, banned, phone,
   } = user;
   return jwt.sign({
-    id, email, username, role, banned,
+    id, email, username, role, banned, phone,
   }, secret, { expiresIn });
 };
 
