@@ -7,7 +7,11 @@ const comment = (sequelize, DataTypes) => {
     },
   });
   Comment.associate = (models) => {
-    Comment.belongsTo(models.User);
+    Comment.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
     Comment.belongsTo(models.Lesson);
     Comment.hasMany(models.Like, { onDelete: 'CASCADE' });
   };

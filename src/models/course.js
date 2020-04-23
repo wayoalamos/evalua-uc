@@ -26,7 +26,7 @@ const course = (sequelize, DataTypes) => {
     },
   });
   Course.associate = (models) => {
-    Course.hasMany(models.Lesson);
+    Course.hasMany(models.Lesson, { onDelete: 'CASCADE' });
   };
   return Course;
 };
