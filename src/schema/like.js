@@ -1,10 +1,13 @@
 const { gql } = require('apollo-server-express');
 
 module.exports = gql`
+    extend type Query {
+        like(id: ID!): Like
+        likes: [Like!]!
+        likeComment(commentId: ID!): Boolean
+    }
     extend type Mutation {
-        createLike(isLike: Boolean!, commentId: ID!): Like
-        deleteLike(id: ID!): Boolean!
-        changeLike(id: ID!): Like!
+        executeLike(commentId: ID!, isLike: Boolean!): Like
     }
     type Like {
         id: ID!

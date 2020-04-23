@@ -151,6 +151,16 @@ const createSeeds = async () => {
     userId: 2,
     charasteristicId: 1,
   });
+  await models.Like.create({
+    userId: 1,
+    commentId: 2,
+    isLike: true,
+  });
+  await models.Like.create({
+    userId: 1,
+    commentId: 1,
+    isLike: false,
+  });
 };
 
 module.exports = { createSeeds };
