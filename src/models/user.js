@@ -31,6 +31,12 @@ const user = (sequelize, DataTypes) => {
     banned: {
       type: DataTypes.BOOLEAN,
     },
+    phone: {
+      type: DataTypes.STRING,
+      validate: {
+        len: 9,
+      },
+    },
   });
   User.associate = (models) => {
     User.hasMany(models.Project, { onDelete: 'CASCADE' });
@@ -53,8 +59,6 @@ const user = (sequelize, DataTypes) => {
   User.prototype.validatePassword = async function validatePassword(password) {
     return bcrypt.compare(password, this.password);
   };
-
-
   return User;
 };
 

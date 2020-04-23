@@ -31,5 +31,6 @@ module.exports = gql`
         banned: Boolean
         comments: [Comment!]!
         evaluations: [Evaluation!]!
+        phone: String
     }
 `;
