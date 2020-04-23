@@ -6,6 +6,7 @@ module.exports = {
     like: async (parent, args, { models }) => models.Like.findByPk(args.id),
     likes: async (parent, args, { models }) => models.Like.findAll(),
     likeComment: async (parent, { commentId }, { models, me }) => {
+      // returns true if is a like, false if dislike, null if there is no like
       const like = await models.Like.findOne({ where: { commentId, userId: me.id } });
       return like === null ? like : like.isLike;
     },
