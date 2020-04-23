@@ -3,9 +3,12 @@ const { isAuthenticated } = require('./authorization');
 
 module.exports = {
   Query: {
-    evaluation: async (
-      parent, { charasteristicId, lessonId }, { models },
-    ) => models.Evaluation.findOne({ where: { charasteristicId, lessonId } }),
+    evaluation: combineResolvers(
+      isAuthenticated,
+      async (
+        parent, { charasteristicId, lessonId }, { models, me },
+      ) => models.Evaluation.findOne({ where: { charasteristicId, lessonId, userId: me.id } }),
+    ),
     evaluations: async (parent, args, { models }) => models.Evaluation.findAll(),
   },
   Evaluation: {
