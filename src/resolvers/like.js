@@ -5,9 +5,9 @@ module.exports = {
   Query: {
     like: async (parent, args, { models }) => models.Like.findByPk(args.id),
     likes: async (parent, args, { models }) => models.Like.findAll(),
-    likeComment: async (parent, { commentId, isLike }, { models, me }) => {
-      const like = await models.Like.findOne({ where: { commentId, isLike, userId: me.id } });
-      return like !== null;
+    likeComment: async (parent, { commentId }, { models, me }) => {
+      const like = await models.Like.findOne({ where: { commentId, userId: me.id } });
+      return like === null ? like : like.isLike;
     },
   },
   Like: {

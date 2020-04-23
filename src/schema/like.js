@@ -4,7 +4,7 @@ module.exports = gql`
     extend type Query {
         like(id: ID!): Like
         likes: [Like!]!
-        likeComment(commentId: ID!, isLike: Boolean!): Boolean!
+        likeComment(commentId: ID!): Boolean
     }
     extend type Mutation {
         executeLike(commentId: ID!, isLike: Boolean!): Like
