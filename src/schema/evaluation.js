@@ -2,15 +2,14 @@ const { gql } = require('apollo-server-express');
 
 module.exports = gql`
     extend type Query {
-        evaluation(id: ID!): Evaluation
+        evaluation(lessonId: ID!, charasteristicId: ID!): Evaluation
         evaluations: [Evaluation!]!
     }
     extend type Mutation {
         createEvaluation(lessonId: ID!, stars: Int!, charasteristicId: ID!): Evaluation
-        deleteEvaluation(id: ID!): Boolean!
+        deleteEvaluation(lessonId: ID!, charasteristicId: ID!): Boolean!
     }
     type Evaluation {
-        id: ID!
         stars: Int
         creator: User!
         lesson: Lesson!

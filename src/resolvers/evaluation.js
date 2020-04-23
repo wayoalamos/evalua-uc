@@ -1,9 +1,11 @@
 const { combineResolvers } = require('graphql-resolvers');
-const { isAuthenticated, isOwner } = require('./authorization');
+const { isAuthenticated } = require('./authorization');
 
 module.exports = {
   Query: {
-    evaluation: async (parent, args, { models }) => models.Evaluation.findByPk(args.id),
+    evaluation: async (
+      parent, { charasteristicId, lessonId }, { models },
+    ) => models.Evaluation.findOne({ where: { charasteristicId, lessonId } }),
     evaluations: async (parent, args, { models }) => models.Evaluation.findAll(),
   },
   Evaluation: {
@@ -24,8 +26,9 @@ module.exports = {
     ),
     deleteEvaluation: combineResolvers(
       isAuthenticated,
-      async (parent, { id }, { models, me }) => isOwner(models.Evaluation, me, id),
-      async (parent, { id }, { models }) => models.Evaluation.destroy({ where: { id } }),
+      async (
+        parent, { lessonId, charasteristicId }, { models, me },
+      ) => models.Evaluation.destroy({ where: { lessonId, charasteristicId, userId: me.id } }),
     ),
   },
 };

@@ -12,19 +12,23 @@ const evaluation = (sequelize, DataTypes) => {
     Evaluation.belongsTo(models.Lesson, {
       foreignKey: {
         allowNull: false,
+        primaryKey: true,
       },
     });
     Evaluation.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
+        primaryKey: true,
       },
     });
     Evaluation.belongsTo(models.Charasteristic, {
       foreignKey: {
         allowNull: false,
+        primaryKey: true,
       },
     });
   };
+  Evaluation.removeAttribute('id');
   return Evaluation;
 };
 
