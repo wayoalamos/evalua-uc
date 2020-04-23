@@ -8,7 +8,7 @@ const campus = (sequelize, DataTypes) => {
     },
   });
   Campus.associate = (models) => {
-    Campus.hasMany(models.Lesson);
+    Campus.hasMany(models.Lesson, { onDelete: 'CASCADE' });
   };
   return Campus;
 };

@@ -35,7 +35,7 @@ const user = (sequelize, DataTypes) => {
   User.associate = (models) => {
     User.hasMany(models.Project, { onDelete: 'CASCADE' });
     User.hasMany(models.Feedback);
-    User.hasMany(models.Comment);
+    User.hasMany(models.Comment, { onDelete: 'CASCADE' });
     User.hasMany(models.Like, { onDelete: 'CASCADE' });
     User.hasMany(models.Evaluation, { onDelete: 'CASCADE' });
   };

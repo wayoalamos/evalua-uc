@@ -7,7 +7,7 @@ const charasteristic = (sequelize, DataTypes) => {
     },
   });
   Charasteristic.associate = (models) => {
-    Charasteristic.hasMany(models.Evaluation);
+    Charasteristic.hasMany(models.Evaluation, { onDelete: 'CASCADE' });
   };
   return Charasteristic;
 };
