@@ -21,5 +21,5 @@ psql -d postgres -U me         # connect to databse
 \dt                            # list all tables
 \c evalua-uc-api                
 
-list process in port:
-sudo lsof -t -i:8080
+sudo kill `lsof -t -i:3000`
+
