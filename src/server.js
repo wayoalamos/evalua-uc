@@ -15,7 +15,6 @@ const port = 3000;
 const eraseDatabaseOnSync = true;
 
 const getMe = async (req) => {
-  // console.log('getMe functions runing');
   const token = req.headers['x-token'];
   if (token) {
     try {

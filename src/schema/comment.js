@@ -15,5 +15,6 @@ module.exports = gql`
         lesson: Lesson
         creator: User
         likes: [Like!]!
+        likesCount(like: Boolean!): Int!
     }
 `;

@@ -10,6 +10,12 @@ module.exports = {
     lesson: async (parent) => parent.getLesson(),
     creator: async (parent) => parent.getUser(),
     likes: async (parent) => parent.getLikes(),
+    likesCount: async (parent, { like }, { models }) => models.Like.count({
+      where: {
+        commentId: parent.id,
+        isLike: like,
+      },
+    }),
   },
   Mutation: {
     createComment: combineResolvers(
