@@ -8,10 +8,10 @@ You may not have access to this site
 https://app.diagrams.net/#G1ZvuQQZ8PWtqlJSucXWYJ1vq-NFJxQkof
 
 ### Wireframe
-![Index](documentation/wireframe1.jpng)
-![Lesson](documentation/wireframe2.jpng)
-![Login](documentation/wireframe3.jpng)
-![Feedback](documentation/wireframe4.jpng)
+![Index](documentation/wireframe1.jpeg)
+![Lesson](documentation/wireframe2.jpeg)
+![Login](documentation/wireframe3.jpeg)
+![Feedback](documentation/wireframe4.jpeg)
 
 Yo may not have access to this site
 https://balsamiq.cloud/s7svhyi/pzsu39/rBD36
